@@ -7,7 +7,7 @@ cat << EOF > safe_rm
 #!/bin/bash
 #
  
-if [ "\$\#" -eq 0 -o "\$1" = "-h" ]; then
+if [ "\$#" -eq 0 -o "\$1" = "-h" ]; then
   echo
 	echo "You are using a replacement of rm called by an alias."
 	echo "To actually delete files or folders use the"
