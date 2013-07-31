@@ -7,7 +7,7 @@ cat << EOF > safe_rm
 #!/bin/bash
 #
  
-if [ "$#" -eq 0 -o "$1" = "-h" ]; then
+if [ "\$\#" -eq 0 -o "\$1" = "-h" ]; then
   echo
 	echo "You are using a replacement of rm called by an alias."
 	echo "To actually delete files or folders use the"
@@ -16,18 +16,18 @@ if [ "$#" -eq 0 -o "$1" = "-h" ]; then
 	echo
 	exit 0
 fi
-if [ "$1" = "--erase" ]; then
+if [ "\$1" = "--erase" ]; then
 	shift
-	echo "This will execute: rm $@"
+	echo "This will execute: rm \$@"
 	read -p "All deleted data are not recoverable. Do you want to proceed (y/n)?"
-	if [ "$REPLY" == "y" ]; then
-		/bin/rm $@
+	if [ "\$REPLY" == "y" ]; then
+		/bin/rm \$@
 	else
 		echo "Aborting..."
 		exit 0
 	fi
 else
-	echo "Cowardly refusing to execute rm $@"
+	echo "Cowardly refusing to execute rm \$@"
 	echo "Use --erase to delete or run rm -h for more info."
 fi
 
