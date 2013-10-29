@@ -18,7 +18,7 @@ if [ "\$#" -eq 0 -o "\$1" = "-h" ]; then
 fi
 if [ "\$1" = "--erase" ]; then
 	shift
-	echo -e "\e[00;34mThis will execute:\e[00m rm \$@"
+	echo -e "\e[00;32mThis will execute:\e[00m rm \$@"
 	read -p "All deleted data are not recoverable. Do you want to proceed (y/n)?"
 	if [ "\$REPLY" == "y" ]; then
 		/bin/rm \$@
