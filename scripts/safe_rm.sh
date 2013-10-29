@@ -18,7 +18,7 @@ if [ "\$#" -eq 0 -o "\$1" = "-h" ]; then
 fi
 if [ "\$1" = "--erase" ]; then
 	shift
-	echo "This will execute: rm \$@"
+	echo -e "\e[00;34mThis will execute:\e[00m rm \$@"
 	read -p "All deleted data are not recoverable. Do you want to proceed (y/n)?"
 	if [ "\$REPLY" == "y" ]; then
 		/bin/rm \$@
@@ -27,8 +27,8 @@ if [ "\$1" = "--erase" ]; then
 		exit 0
 	fi
 else
-	echo "Cowardly refusing to execute rm \$@"
-	echo "Use --erase to delete or run rm -h for more info."
+	echo -e "\e[00;31mCowardly refusing to execute rm \$@ \e[00m"
+	echo "\e[00;31mUse --erase to delete or run rm -h for more info.\e[00m"
 fi
 
 EOF
