@@ -23,12 +23,12 @@ if [ "\$1" = "--erase" ]; then
 	if [ "\$REPLY" == "y" ]; then
 		/bin/rm \$@
 	else
-		echo "Aborting..."
+		echo -e "\e[00;32mAborting...\e[00m"
 		exit 0
 	fi
 else
 	echo -e "\e[00;31mCowardly refusing to execute rm \$@ \e[00m"
-	echo "\e[00;31mUse --erase to delete or run rm -h for more info.\e[00m"
+	echo -e "\e[00;31mUse --erase to delete or run rm -h for more info.\e[00m"
 fi
 
 EOF
